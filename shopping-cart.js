@@ -1,6 +1,6 @@
 /* =====================================================
    CLICON SHOPPING CART
-   Works with main.html and cart.html
+   Works with homes.html and cart.html
    Uses localStorage
 ===================================================== */
 
@@ -284,53 +284,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateTotals(cart) {
 
-        const subtotal = calculateSubtotal(cart);
-        const discount = calculateDiscount(cart);
-        const tax = calculateTax(subtotal);
+    // Normal/original price
+    const subtotal = cart.reduce(
+        (total, item) => {
 
-        /*
-            Product price is already the selling price.
+            const oldPrice = Number(item.oldPrice) || 0;
+            const price = Number(item.price) || 0;
+            const quantity = Number(item.quantity) || 0;
 
-            Therefore:
-            TOTAL = SUBTOTAL + TAX
+            // Use oldPrice if available, otherwise use price
+            const normalPrice =
+                oldPrice > price ? oldPrice : price;
 
-            Discount is displayed separately.
-        */
+            return total + (normalPrice * quantity);
 
-        const total = subtotal + tax;
+        },
+        0
+    );
 
-        const subtotalElement =
-            document.getElementById("cartSubtotal");
 
-        const discountElement =
-            document.getElementById("cartDiscount");
+    // Discount amount
+    const discount = calculateDiscount(cart);
 
-        const taxElement =
-            document.getElementById("cartTax");
 
-        const totalElement =
-            document.getElementById("cartTotal");
+    // Price after discount
+    const discountedPrice =
+        subtotal - discount;
 
-        if (subtotalElement) {
-            subtotalElement.textContent =
-                formatPrice(subtotal);
-        }
 
-        if (discountElement) {
-            discountElement.textContent =
-                formatPrice(discount);
-        }
+    // Tax on discounted price
+    const tax =
+        calculateTax(discountedPrice);
 
-        if (taxElement) {
-            taxElement.textContent =
-                formatPrice(tax);
-        }
 
-        if (totalElement) {
-            totalElement.textContent =
-                `${formatPrice(total)} USD`;
-        }
+    // Final amount
+    const total =
+        discountedPrice + tax;
+
+
+    const subtotalElement =
+        document.getElementById("cartSubtotal");
+
+    const discountElement =
+        document.getElementById("cartDiscount");
+
+    const taxElement =
+        document.getElementById("cartTax");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+
+    if (subtotalElement) {
+        subtotalElement.textContent =
+            formatPrice(subtotal);
     }
+
+    if (discountElement) {
+        discountElement.textContent =
+            `-${formatPrice(discount)}`;
+    }
+
+    if (taxElement) {
+        taxElement.textContent =
+            `+${formatPrice(tax)}`;
+    }
+
+    if (totalElement) {
+        totalElement.textContent =
+            `${formatPrice(total)} USD`;
+    }
+
+}
 
 
     /* =================================================
@@ -346,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("emptyCart");
 
         /*
-            main also uses this JavaScript,
+            homes.html also uses this JavaScript,
             so stop if the cart container doesn't exist.
         */
 

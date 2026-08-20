@@ -73,15 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const totalItems = cart.reduce(
-            (total, item) => {
-                return total +
-                    Number(item.quantity || 0);
-            },
-            0
-        );
+        const totalItems =
+            cart.reduce(
+                (total, item) => {
 
-        cartCount.textContent = totalItems;
+                    return total +
+                        Number(item.quantity || 0);
+
+                },
+                0
+            );
+
+        cartCount.textContent =
+            totalItems;
     }
 
 
@@ -110,9 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
 
+
         const id =
             product.dataset.productId ||
             "product";
+
 
         const name =
             product.dataset.productName ||
@@ -120,39 +126,47 @@ document.addEventListener("DOMContentLoaded", () => {
             product.querySelector("p")?.textContent.trim() ||
             "Product";
 
+
         const price =
             parseFloat(
                 product.dataset.productPrice
             ) || 0;
+
 
         const oldPriceValue =
             parseFloat(
                 product.dataset.productOldPrice
             );
 
+
         const oldPrice =
             Number.isNaN(oldPriceValue)
                 ? price * 1.2
                 : oldPriceValue;
+
 
         const image =
             product.dataset.productImage ||
             product.querySelector("img")?.getAttribute("src") ||
             "";
 
+
         const brand =
             product.dataset.productBrand ||
             "Apple";
 
+
         const category =
             product.dataset.productCategory ||
             "Electronics Devices";
+
 
         const sku =
             product.dataset.productSku ||
             id
                 .replace("product-", "")
                 .toUpperCase();
+
 
         return {
             id,
@@ -173,25 +187,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showCartMessage(productName) {
 
-        /* Remove an existing popup */
-
         const oldMessage =
             document.getElementById(
                 "cartNotification"
             );
+
 
         if (oldMessage) {
             oldMessage.remove();
         }
 
 
-        /* Create popup */
-
         const message =
             document.createElement("div");
 
+
         message.id =
             "cartNotification";
+
 
         message.className =
             "cart-notification";
@@ -205,25 +218,26 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
 
-        /* Add popup to page */
+        document.body.appendChild(
+            message
+        );
 
-        document.body.appendChild(message);
-
-
-        /* Force browser to recognize initial state */
 
         requestAnimationFrame(() => {
 
-            message.classList.add("show");
+            message.classList.add(
+                "show"
+            );
 
         });
 
 
-        
-
         setTimeout(() => {
 
-            message.classList.remove("show");
+            message.classList.remove(
+                "show"
+            );
+
 
             setTimeout(() => {
 
@@ -268,14 +282,17 @@ document.addEventListener("DOMContentLoaded", () => {
             Number.isNaN(quantity) ||
             quantity < 1
         ) {
+
             quantity = 1;
+
         }
 
 
         const existingProduct =
-            cart.find(item =>
-                String(item.id) ===
-                String(productData.id)
+            cart.find(
+                item =>
+                    String(item.id) ===
+                    String(productData.id)
             );
 
 
@@ -301,35 +318,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cart.push({
 
-                id: productData.id,
+                id:
+                    productData.id,
 
-                name: productData.name,
+                name:
+                    productData.name,
 
-                price: productData.price,
+                price:
+                    productData.price,
 
-                oldPrice: productData.oldPrice,
+                oldPrice:
+                    productData.oldPrice,
 
-                image: productData.image,
+                image:
+                    productData.image,
 
-                brand: productData.brand,
+                brand:
+                    productData.brand,
 
-                category: productData.category,
+                category:
+                    productData.category,
 
-                sku: productData.sku,
+                sku:
+                    productData.sku,
 
-                quantity: quantity
+                quantity:
+                    quantity
 
             });
 
         }
 
 
-        /* Save */
-
         saveCart();
 
-
-        /* Show success popup */
 
         showCartMessage(
             productData.name
@@ -366,7 +388,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
 
-                    addToCart(product);
+                    addToCart(
+                        product
+                    );
 
                 }
             );
@@ -378,9 +402,11 @@ document.addEventListener("DOMContentLoaded", () => {
        QUICK VIEW STATE
     ================================================= */
 
-    let currentProduct = null;
+    let currentProduct =
+        null;
 
-    let currentQuantity = 1;
+    let currentQuantity =
+        1;
 
 
     /* =================================================
@@ -389,7 +415,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openQuickView(product) {
 
-        if (!product || !modal) {
+        if (
+            !product ||
+            !modal
+        ) {
             return;
         }
 
@@ -406,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentProduct =
             product;
 
+
         currentQuantity =
             1;
 
@@ -419,6 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalImage.alt =
                 data.name;
+
         }
 
 
@@ -428,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalTitle.textContent =
                 data.name;
+
         }
 
 
@@ -437,6 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalSku.textContent =
                 data.sku;
+
         }
 
 
@@ -446,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalBrand.textContent =
                 data.brand;
+
         }
 
 
@@ -455,6 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalCategory.textContent =
                 data.category;
+
         }
 
 
@@ -464,6 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalPrice.textContent =
                 `$${data.price.toFixed(2)}`;
+
         }
 
 
@@ -472,7 +508,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (modalOldPrice) {
 
             if (
-                data.oldPrice > data.price
+                data.oldPrice >
+                data.price
             ) {
 
                 modalOldPrice.textContent =
@@ -481,11 +518,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 modalOldPrice.style.display =
                     "inline";
 
-            } else {
+            }
+
+            else {
 
                 modalOldPrice.style.display =
                     "none";
+
             }
+
         }
 
 
@@ -495,17 +536,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modalQuantity.textContent =
                 currentQuantity;
+
         }
 
 
         /* OPEN */
 
-        modal.classList.add("active");
+        modal.classList.add(
+            "active"
+        );
+
 
         modal.setAttribute(
             "aria-hidden",
             "false"
         );
+
 
         document.body.classList.add(
             "quick-view-open"
@@ -528,10 +574,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "active"
         );
 
+
         modal.setAttribute(
             "aria-hidden",
             "true"
         );
+
 
         document.body.classList.remove(
             "quick-view-open"
@@ -541,13 +589,14 @@ document.addEventListener("DOMContentLoaded", () => {
         currentProduct =
             null;
 
+
         currentQuantity =
             1;
     }
 
 
     /* =================================================
-       QUICK VIEW CLOSE
+       QUICK VIEW CLOSE BUTTON
     ================================================= */
 
     if (modalClose) {
@@ -562,6 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -585,6 +635,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -623,6 +674,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 event.preventDefault();
 
+
                 if (
                     currentQuantity <= 1
                 ) {
@@ -642,6 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -670,6 +723,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -701,6 +755,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -733,6 +788,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -765,7 +821,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
 
-                    openQuickView(product);
+                    openQuickView(
+                        product
+                    );
 
                 }
             );
@@ -806,7 +864,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
 
-                    openQuickView(product);
+                    openQuickView(
+                        product
+                    );
 
                 }
             );
@@ -838,7 +898,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     const icon =
-                        button.querySelector("i");
+                        button.querySelector(
+                            "i"
+                        );
 
 
                     if (!icon) {
@@ -856,6 +918,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "fa-solid",
                         active
                     );
+
 
                     icon.classList.toggle(
                         "fa-regular",
@@ -892,24 +955,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    /* =================================================
+    /* =====================================================
        SHOP WITH CATEGORY SLIDER
-    ================================================= */
+    ===================================================== */
 
     const categoryTrack =
         document.getElementById(
             "categoryTrack"
         );
 
+
     const categoryPrev =
         document.getElementById(
             "categoryPrev"
         );
 
+
     const categoryNext =
         document.getElementById(
             "categoryNext"
         );
+
 
     const categoryDots =
         document.querySelectorAll(
@@ -929,11 +995,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-        let currentSlide = 0;
+        let currentSlide =
+            0;
 
 
         /* =============================================
-           VISIBLE CARDS
+           GET VISIBLE CARDS
         ============================================= */
 
         function getVisibleCards() {
@@ -943,21 +1010,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (width <= 600) {
+
                 return 1;
+
             }
 
 
             if (width <= 900) {
+
                 return 2;
+
             }
 
 
             if (width <= 1100) {
+
                 return 3;
+
             }
 
 
             return 4;
+        }
+
+
+        /* =============================================
+           SET CARD WIDTH
+           
+           IMPORTANT:
+           The card width is calculated from the
+           slider viewport, NOT from the track.
+           
+           This fixes the oversized cards shown
+           in your screenshot.
+        ============================================= */
+
+        function setCategoryCardWidths() {
+
+            if (
+                !categoryCards.length
+            ) {
+                return;
+            }
+
+
+            const visibleCards =
+                getVisibleCards();
+
+
+            const sliderWidth =
+                categoryTrack.parentElement
+                    ?.getBoundingClientRect()
+                    .width ||
+                categoryTrack
+                    .parentElement
+                    ?.clientWidth ||
+                0;
+
+
+            if (!sliderWidth) {
+                return;
+            }
+
+
+            const trackStyle =
+                window.getComputedStyle(
+                    categoryTrack
+                );
+
+
+            const gap =
+                parseFloat(
+                    trackStyle.gap
+                ) || 0;
+
+
+            const totalGap =
+                gap *
+                (visibleCards - 1);
+
+
+            const cardWidth =
+                (
+                    sliderWidth -
+                    totalGap -
+                    10
+                ) /
+                visibleCards;
+
+
+            categoryCards.forEach(
+                card => {
+
+                    card.style.flex =
+                        `0 0 ${cardWidth}px`;
+
+                }
+            );
         }
 
 
@@ -980,6 +1129,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =============================================
+           UPDATE INDICATORS
+        ============================================= */
+
+        function updateCategoryDots(
+            maxSlide
+        ) {
+
+            if (
+                !categoryDots.length
+            ) {
+                return;
+            }
+
+
+            categoryDots.forEach(
+                (dot, index) => {
+
+                    /*
+                       A slider with 7 cards
+                       and 4 visible cards
+                       has:
+
+                       7 - 4 = 3
+                       maximum movement
+
+                       Therefore there are
+                       4 positions:
+
+                       0
+                       1
+                       2
+                       3
+                    */
+
+                    if (
+                        index <= maxSlide
+                    ) {
+
+                        dot.style.display =
+                            "block";
+
+                    }
+
+                    else {
+
+                        dot.style.display =
+                            "none";
+
+                    }
+
+
+                    dot.classList.toggle(
+                        "active",
+                        index ===
+                        currentSlide
+                    );
+
+                }
+            );
+        }
+
+
+        /* =============================================
            UPDATE CATEGORY SLIDER
         ============================================= */
 
@@ -992,11 +1204,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
+            /* First calculate correct
+               card sizes */
+
+            setCategoryCardWidths();
+
+
+            /* Get current card width */
+
             const cardWidth =
                 categoryCards[0]
                     .getBoundingClientRect()
                     .width;
 
+
+            /* Get gap */
 
             const trackStyle =
                 window.getComputedStyle(
@@ -1010,11 +1232,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 ) || 0;
 
 
+            /* Get maximum movement */
+
             const maxSlide =
                 getMaxSlide();
 
 
-            /* Prevent invalid slide */
+            /* Keep current slide valid */
 
             if (
                 currentSlide >
@@ -1023,6 +1247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 currentSlide =
                     maxSlide;
+
             }
 
 
@@ -1032,62 +1257,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 currentSlide =
                     0;
+
             }
 
 
-            /* Move slider */
+            /* Calculate movement */
 
             const moveDistance =
                 currentSlide *
-                (cardWidth + gap);
+                (
+                    cardWidth +
+                    gap
+                );
 
+
+            /* Move track */
 
             categoryTrack.style.transform =
                 `translateX(-${moveDistance}px)`;
 
 
-            /* =========================================
-               INDICATORS
-            ========================================= */
+            /* Update dots */
 
-            categoryDots.forEach(
-                (dot, index) => {
-
-                    /*
-                       Only show dots that represent
-                       actual slider positions.
-                    */
-
-                    const valid =
-                        index <= maxSlide;
-
-
-                    dot.style.display =
-                        valid
-                            ? ""
-                            : "none";
-
-
-                    dot.classList.toggle(
-                        "active",
-                        index === currentSlide
-                    );
-
-                }
+            updateCategoryDots(
+                maxSlide
             );
 
 
-            /* =========================================
-               PREVIOUS ARROW
-            ========================================= */
+            /* Previous button */
 
             categoryPrev.disabled =
                 currentSlide === 0;
 
 
-            /* =========================================
-               NEXT ARROW
-            ========================================= */
+            /* Next button */
 
             categoryNext.disabled =
                 currentSlide >= maxSlide;
@@ -1096,7 +1299,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =============================================
-           NEXT ARROW
+           NEXT BUTTON
         ============================================= */
 
         categoryNext.addEventListener(
@@ -1117,6 +1320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     currentSlide++;
 
+
                     updateCategorySlider();
 
                 }
@@ -1126,7 +1330,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =============================================
-           PREVIOUS ARROW
+           PREVIOUS BUTTON
         ============================================= */
 
         categoryPrev.addEventListener(
@@ -1142,6 +1346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     currentSlide--;
 
+
                     updateCategorySlider();
 
                 }
@@ -1151,7 +1356,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =============================================
-           INDICATORS
+           DOT CLICK
         ============================================= */
 
         categoryDots.forEach(
@@ -1171,7 +1376,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                         if (
-                            Number.isNaN(slide)
+                            Number.isNaN(
+                                slide
+                            )
                         ) {
                             return;
                         }
@@ -1230,7 +1437,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =============================================
-           INITIALIZE SLIDER
+           INITIALIZE
         ============================================= */
 
         updateCategorySlider();

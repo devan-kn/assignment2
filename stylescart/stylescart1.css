@@ -18,7 +18,6 @@ body {
     color: #191c1f;
     background: #ffffff;
     overflow-x: hidden;
-
     min-height: 100vh;
 
     display: flex;
@@ -158,6 +157,7 @@ a {
     transform: translateY(-50%);
 
     height: 40px;
+
     padding: 0 24px;
 
     background: #f5d000;
@@ -235,6 +235,7 @@ a {
 
 .header-top {
     width: 100%;
+
     background: #1d6a97;
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
@@ -242,6 +243,7 @@ a {
 
 .header-top-inner {
     width: min(1060px, calc(100% - 40px));
+
     min-height: 43px;
 
     margin: 0 auto;
@@ -305,6 +307,7 @@ a {
 
 .header-main-inner {
     width: min(1060px, calc(100% - 40px));
+
     min-height: 74px;
 
     margin: 0 auto;
@@ -457,7 +460,6 @@ a {
     height: 17px;
 
     background: #ffffff;
-
     color: #176b9c;
 
     border-radius: 50%;
@@ -477,11 +479,14 @@ a {
 
 .cart-notification {
     position: fixed;
+
     right: 25px;
     bottom: 25px;
+
     z-index: 99999;
 
     min-width: 260px;
+
     padding: 15px 20px;
 
     background: #1b6b98;
@@ -494,7 +499,8 @@ a {
 
     text-align: center;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.18);
 
     opacity: 0;
     visibility: hidden;
@@ -534,6 +540,7 @@ a {
 
 .nav-inner {
     width: min(1060px, calc(100% - 40px));
+
     min-height: 66px;
 
     margin: 0 auto;
@@ -603,7 +610,6 @@ a {
 
 .section-heading {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
@@ -664,9 +670,13 @@ a {
 
     display: grid;
 
-    grid-template-columns: 1.5fr repeat(4, 1fr);
+    grid-template-columns:
+        1.5fr
+        repeat(4, 1fr);
 
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows:
+        1fr
+        1fr;
 
     border: 1px solid #e4e7e8;
 
@@ -692,9 +702,7 @@ a {
     border-bottom: 1px solid #e4e7e8;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: flex-end;
 
     overflow: hidden;
@@ -711,15 +719,12 @@ a {
 
 .deal-grid > .deal-product:not(.large-product) img {
     width: 100%;
-
     height: 150px;
 
     object-fit: contain;
-
     object-position: center center;
 
     margin-top: -8px;
-
     margin-bottom: 8px;
 
     flex-shrink: 0;
@@ -758,6 +763,7 @@ a {
     margin: 0 0 4px;
 
     position: relative;
+
     z-index: 25;
 
     background: #ffffff;
@@ -789,9 +795,7 @@ a {
     min-height: 0;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: flex-start;
 
     overflow: hidden;
@@ -801,11 +805,9 @@ a {
 
 .large-product img {
     width: 100%;
-
     height: 320px;
 
     object-fit: contain;
-
     object-position: center center;
 
     margin: 0 0 2px;
@@ -874,12 +876,12 @@ a {
     margin-bottom: 7px;
 
     position: relative;
+
     z-index: 25;
 }
 
 .rating span {
     color: #666666;
-
     font-size: 8px;
 }
 
@@ -897,19 +899,18 @@ a {
     gap: 5px;
 
     position: relative;
+
     z-index: 25;
 }
 
 .price del {
     color: #999999;
-
     font-size: 8px;
 }
 
 .price strong,
 .blue-price {
     color: #1684db;
-
     font-size: 10px;
 }
 
@@ -928,6 +929,7 @@ a {
     margin-top: 8px;
 
     position: relative;
+
     z-index: 25;
 
     background: #ffffff;
@@ -941,7 +943,10 @@ a {
 .product-buttons {
     display: grid;
 
-    grid-template-columns: 35px 1fr 35px;
+    grid-template-columns:
+        35px
+        1fr
+        35px;
 
     gap: 5px;
 
@@ -953,7 +958,7 @@ a {
 
     border: 1px solid #dddddd;
 
-    background: #ffffff;
+    background: rgba(255, 231, 214, 1);
 }
 
 .product-buttons .add-cart {
@@ -975,7 +980,6 @@ a {
 
 .large-product .product-buttons {
     display: flex;
-
     align-items: center;
 
     gap: 6px;
@@ -1001,7 +1005,6 @@ a {
     height: 36px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -1025,6 +1028,7 @@ a {
     display: block;
 
     width: fit-content;
+
     max-width: calc(100% - 20px);
 
     height: auto;
@@ -1101,9 +1105,7 @@ a {
     z-index: 40;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 
     gap: 5px;
@@ -1120,6 +1122,7 @@ a {
     display: block;
 
     width: fit-content;
+
     max-width: 100%;
 
     height: auto;
@@ -1164,8 +1167,8 @@ a {
 
     left: 0;
     right: 0;
-    top: 0;
 
+    top: 0;
     bottom: 60px;
 
     background: rgba(105, 105, 105, 0.48);
@@ -1201,7 +1204,6 @@ a {
     transform: translate(-50%, -50%);
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -1210,7 +1212,6 @@ a {
     z-index: 30;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
@@ -1223,7 +1224,6 @@ a {
 
 .small-deal-product:hover .product-hover-actions {
     opacity: 1;
-
     visibility: visible;
 
     pointer-events: auto;
@@ -1241,21 +1241,19 @@ a {
     height: 48px;
 
     border: none;
-
     border-radius: 50%;
 
     background: #ffffff;
-
     color: #191c1f;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     font-size: 18px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
 
     transition:
         background 0.2s ease,
@@ -1294,7 +1292,7 @@ a {
 .collections {
     width: 100%;
 
-    padding: 0 0 45px;
+    padding: 35px 0 45px;
 
     background: #ffffff;
 
@@ -1304,7 +1302,8 @@ a {
 .collection-grid {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 12px;
 }
@@ -1351,7 +1350,8 @@ a {
 .small-product:hover {
     border-color: #d6dadd;
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
 .small-product img {
@@ -1394,7 +1394,9 @@ a {
 
 .small-product .product-hover-actions {
     left: auto;
+
     right: 7px;
+
     top: 50%;
 
     transform: translateY(-50%);
@@ -1429,73 +1431,40 @@ a {
 .categories {
     width: 100%;
 
-    padding: 15px 0 35px;
+    padding: 10px 0 35px;
 
     background: #ffffff;
 
     flex-shrink: 0;
 }
 
-.section-title {
+
+/* =====================================================
+   CATEGORY SECTION TITLE
+===================================================== */
+
+.categories .section-title {
+    width: 100%;
+
     text-align: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-.section-title h2 {
+.categories .section-title h2 {
     font-size: 18px;
 
     font-weight: 600;
+
+    color: #191c1f;
 }
+
+
+/* =====================================================
+   CATEGORY SLIDER
+===================================================== */
 
 .category-slider {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.slider-button {
-    width: 28px;
-    height: 28px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: rgba(250, 130, 50, 1);
-
-    color: #ffffff;
-
-    flex-shrink: 0;
-
-    z-index: 10;
-}
-
-
-/* =====================================================
-   SHOP WITH CATEGORY
-===================================================== */
-
-.categories {
-    width: 100%;
-
-    background: #ffffff;
-}
-
-.categories .section-container {
-    width: min(1200px, 90%);
-
-    margin: 0 auto;
-}
-
-
-/* =====================================================
-   CATEGORY SLIDER WRAPPER
-===================================================== */
-
-.category-slider-wrapper {
     width: 100%;
 
     display: flex;
@@ -1503,21 +1472,23 @@ a {
     align-items: center;
 
     gap: 18px;
+
+    position: relative;
+
+    overflow: visible;
 }
 
 
 /* =====================================================
-   CATEGORY SLIDER VIEWPORT
+   CATEGORY VIEWPORT
 ===================================================== */
 
-.category-slider {
+.category-viewport {
     flex: 1;
 
-    width: 100%;
+    min-width: 0;
 
     overflow: hidden;
-
-    padding: 5px;
 }
 
 
@@ -1526,6 +1497,8 @@ a {
 ===================================================== */
 
 .category-track {
+    width: 100%;
+
     display: flex;
 
     gap: 16px;
@@ -1542,21 +1515,26 @@ a {
 ===================================================== */
 
 .category-card {
-    flex: 0 0 calc(
-        (100% - 48px) / 4
-    );
+    flex: 0 0 calc((100% - 48px) / 4);
 
     min-width: 0;
+
+    height: 190px;
 
     background: #ffffff;
 
     border: 1px solid #e4e7e9;
 
-    padding: 20px 10px;
+    padding: 12px 10px;
 
     text-align: center;
 
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     transition:
         border-color 0.25s ease,
@@ -1564,27 +1542,41 @@ a {
         box-shadow 0.25s ease;
 }
 
+
+/* =====================================================
+   CATEGORY CARD HOVER
+===================================================== */
+
 .category-card:hover {
     border-color: #2da5f3;
 
-    transform: translateY(-4px);
+    
 
     box-shadow:
-        0 5px 20px
-        rgba(0, 0, 0, 0.08);
+        0 5px 20px rgba(0, 0, 0, 0.08);
 }
+
+
+/* =====================================================
+   CATEGORY IMAGE
+===================================================== */
 
 .category-card img {
     width: 100%;
 
-    height: 120px;
+    height: 105px;
 
     object-fit: contain;
 
     display: block;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
+
+
+/* =====================================================
+   CATEGORY TITLE
+===================================================== */
 
 .category-card h3 {
     margin: 0;
@@ -1600,7 +1592,7 @@ a {
 
 
 /* =====================================================
-   PREVIOUS / NEXT BUTTONS
+   SLIDER BUTTONS
 ===================================================== */
 
 .slider-button {
@@ -1615,9 +1607,9 @@ a {
 
     border-radius: 50%;
 
-    background: #ffffff;
+    background: rgba(250, 130, 50, 1);
 
-    color: #191c1f;
+    color: #ffffff;
 
     display: flex;
 
@@ -1627,21 +1619,43 @@ a {
 
     cursor: pointer;
 
+    flex-shrink: 0;
+
     box-shadow:
-        0 2px 10px
-        rgba(0, 0, 0, 0.12);
+        0 2px 10px rgba(0, 0, 0, 0.12);
 
     transition:
         background 0.25s ease,
         color 0.25s ease,
         opacity 0.25s ease;
-
-    background-color: rgba(250, 130, 50, 1);
 }
+
+
+/* =====================================================
+   ARROW ICON
+===================================================== */
+
+.slider-button i {
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   BUTTON HOVER
+===================================================== */
 
 .slider-button:hover {
+    background: #ff762e;
+
     color: #ffffff;
 }
+
+
+/* =====================================================
+   DISABLED BUTTON
+===================================================== */
 
 .slider-button:disabled {
     opacity: 0.35;
@@ -1649,57 +1663,6 @@ a {
     cursor: not-allowed;
 
     pointer-events: none;
-}
-
-
-/* =====================================================
-   SLIDE INDICATORS
-===================================================== */
-
-.category-indicators {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    margin-top: 25px;
-    
-    
-}
-
-.category-dot {
-    width: 8px;
-
-    height: 8px;
-
-    padding: 0;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #c9ced3;
-
-    cursor: pointer;
-
-    transition:
-        width 0.3s ease,
-        background 0.3s ease;
-}
-
-.category-dot.active {
-    width: 24px;
-
-    background: #2da5f3;
-
-    border-radius: 10px;
-}
-
-.category-dot:hover {
-    background: #1684db;
 }
 
 
@@ -1774,6 +1737,7 @@ a {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     flex-shrink: 0;
@@ -1999,7 +1963,9 @@ a {
 
     display: grid;
 
-    grid-template-columns: 1fr 1.05fr;
+    grid-template-columns:
+        1fr
+        1.05fr;
 
     gap: 35px;
 
@@ -2037,21 +2003,9 @@ a {
    CLOSE BUTTON
 ===================================================== */
 
-/*
-   The button is positioned outside the
-   top-right corner of the modal.
-
-   IMPORTANT:
-   - No padding is used on the button.
-   - Flexbox centers the X perfectly.
-   - top/right negative values move the
-     circle outside the modal.
-*/
-
 .quick-view-close {
     position: absolute;
 
-    
     right: -60px;
 
     width: 48px;
@@ -2078,6 +2032,7 @@ a {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -2092,15 +2047,11 @@ a {
         transform 0.2s ease;
 }
 
-
-/*
-   Center the Font Awesome icon itself.
-*/
-
 .quick-view-close i {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     width: 100%;
@@ -2108,11 +2059,6 @@ a {
 
     margin: 0;
 }
-
-
-/*
-   Gray hover state.
-*/
 
 .quick-view-close:hover {
     background: #eeeeee;
@@ -2139,7 +2085,6 @@ a {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     overflow: hidden;
@@ -2147,7 +2092,6 @@ a {
 
 .quick-view-image img {
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
@@ -2232,7 +2176,9 @@ a {
 .quick-view-meta {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr
+        1fr;
 
     column-gap: 30px;
 
@@ -2467,9 +2413,12 @@ a {
     .quick-view-modal {
         width: min(900px, 100%);
     }
-
 }
 
+
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -2497,7 +2446,8 @@ a {
         grid-template-columns:
             repeat(3, 1fr);
 
-        grid-template-rows: auto;
+        grid-template-rows:
+            auto;
     }
 
     .large-product {
@@ -2516,7 +2466,8 @@ a {
     }
 
     .quick-view-modal {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         max-height: 90vh;
 
@@ -2529,13 +2480,9 @@ a {
         height: 280px;
     }
 
-    /*
-       Keep close button outside the modal
-       on smaller screens.
-    */
-
     .quick-view-close {
         top: -20px;
+
         right: -20px;
 
         width: 45px;
@@ -2543,9 +2490,12 @@ a {
 
         font-size: 20px;
     }
-
 }
 
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 650px) {
 
@@ -2632,16 +2582,66 @@ a {
     }
 
     .collection-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* =============================================
+       MOBILE CATEGORY SLIDER
+    ============================================= */
+
+    .categories {
+        padding: 10px 0 30px;
+    }
+
+    .categories .section-title {
+        margin-bottom: 15px;
     }
 
     .category-slider {
-        overflow-x: auto;
+        gap: 10px;
+
+        overflow: visible;
+    }
+
+    .category-viewport {
+        overflow: hidden;
     }
 
     .category-card {
-        min-width: 130px;
+        flex: 0 0 calc((100% - 16px) / 2);
+
+        height: 170px;
+
+        padding: 10px 8px;
     }
+
+    .category-card img {
+        height: 90px;
+
+        margin-bottom: 8px;
+    }
+
+    .category-card h3 {
+        font-size: 12px;
+    }
+
+    .slider-button {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+    }
+
+    .slider-button i {
+        font-size: 14px;
+    }
+
+
+    /* =============================================
+       QUICK VIEW
+    ============================================= */
 
     .quick-view-overlay {
         padding: 15px;
@@ -2652,10 +2652,6 @@ a {
 
         gap: 20px;
 
-        /*
-           Make sure the circle can
-           remain outside the box.
-        */
         overflow: visible;
     }
 
@@ -2668,7 +2664,8 @@ a {
     }
 
     .quick-view-meta {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .quick-view-actions {
@@ -2691,17 +2688,15 @@ a {
 
     .footer-container {
         grid-template-columns:
-            1fr 1fr;
+            1fr
+            1fr;
 
         gap: 30px;
     }
 
-    /*
-       Smaller close button.
-    */
-
     .quick-view-close {
         top: -18px;
+
         right: -18px;
 
         width: 42px;
@@ -2709,14 +2704,18 @@ a {
 
         font-size: 19px;
     }
-
 }
 
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
 
 @media (max-width: 450px) {
 
     .deal-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .large-product {
@@ -2728,19 +2727,17 @@ a {
     }
 
     .footer-container {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .quick-view-modal {
         padding: 15px;
     }
 
-    /*
-       Final mobile close button.
-    */
-
     .quick-view-close {
         top: -16px;
+
         right: -16px;
 
         width: 40px;
@@ -2749,4 +2746,18 @@ a {
         font-size: 18px;
     }
 
+
+    /* =============================================
+       SMALL MOBILE CATEGORY
+    ============================================= */
+
+    .category-card {
+        flex: 0 0 100%;
+
+        height: 165px;
+    }
+
+    .category-card img {
+        height: 85px;
+    }
 }
