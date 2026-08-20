@@ -1,6 +1,6 @@
 /* =====================================================
    CLICON SHOPPING CART
-   Works with homes.html and cart.html
+   Works with main.html and cart.html
    Uses localStorage
 ===================================================== */
 
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("emptyCart");
 
         /*
-            homes.html also uses this JavaScript,
+            main also uses this JavaScript,
             so stop if the cart container doesn't exist.
         */
 

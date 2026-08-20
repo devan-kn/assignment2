@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        /* Remove popup after 2.2 seconds */
+        
 
         setTimeout(() => {
 
