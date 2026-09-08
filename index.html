@@ -18,22 +18,55 @@
         wait_for_update: 2000,
     });
     gtag("set", "ads_data_redaction", true);
-    gtag("set", "url_passthrough", true);
+    gtag("set", "url_passthrough", true); -->
 </script>
  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FK0CPBMCGQ"></script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-FK0CPBMCGQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-FK0CPBMCGQ');
-</script>
-
-</script>
+</script> 
 <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/8cbeb8b9629963b0e0c82dc43ca1f9d0/script.js"></script> <!-- End cookieyes banner -->
+<script>
+  !function(f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function() {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
- <script>
+  fbq('consent', 'revoke');
+  fbq('init', '{1090628090285859}');
+  fbq('track', 'PageView');
+
+  function handleConsent(hasConsent) {
+    fbq("consent", hasConsent ? "grant" : "revoke");
+  }
+
+  document.addEventListener("cookieyes_consent_update", (eventData) => {
+    const data = eventData.detail;
+    handleConsent(data.accepted && data.accepted.includes("advertisement"));
+  });
+
+  document.addEventListener("cookieyes_banner_load", (eventData) => {
+    const data = eventData.detail;
+    handleConsent(data.categories && data.categories.advertisement);
+  });
+</script>
+ <!-- <script>
     function initializeUET() {
         (function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "97267647",enableAutoSpaTracking: true});
     }
@@ -46,7 +79,7 @@
         const data = eventData.detail;
         if (data.accepted.includes("advertisement")) initializeUET();
     }
-</script>   
+</script>    -->
     <!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
