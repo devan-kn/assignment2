@@ -406,6 +406,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ===================================================== -->
 <div id="daily-container"></div>
 <div id="youtube-container">
+<div
+    id="youtube-video"
+    data-src="https://www.youtube.com/embed/mbhac6PEf6w?si=wnj2K2hkdTFCv6RS"
+    style="width:560px;height:315px;"
+>
+    <p>Please accept Analytics, Functional, and Advertisement cookies to watch this video.</p>
+</div>
+
+<script>
+(function () {
+
+    function loadYouTube() {
+        const container = document.getElementById('youtube-video');
+
+        if (!container || container.dataset.loaded === 'true') {
+            return;
+        }
+
+        const iframe = document.createElement('iframe');
+
+        iframe.width = '560';
+        iframe.height = '315';
+        iframe.src = container.dataset.src;
+        iframe.title = 'YouTube video player';
+        iframe.frameBorder = '0';
+
+        iframe.allow =
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+
+        container.innerHTML = '';
+        container.appendChild(iframe);
+
+        container.dataset.loaded = 'true';
+    }
+
+
+    function hasRequiredConsent(data) {
+
+        if (!data) {
+            return false;
+        }
+
+        /*
+         * All THREE categories must be accepted.
+         */
+        return (
+            data.accepted &&
+            data.accepted.includes('analytics') &&
+            data.accepted.includes('functional') &&
+            data.accepted.includes('advertisement')
+        );
+    }
+
+
+    // Check when CookieYes banner loads
+    document.addEventListener('cookieyes_banner_load', function (event) {
+
+        const data = event.detail;
+
+        if (
+            data &&
+            data.categories &&
+            data.categories.analytics &&
+            data.categories.functional &&
+            data.categories.advertisement
+        ) {
+            loadYouTube();
+        }
+    });
+
+
+    // Check whenever the visitor changes consent
+    document.addEventListener('cookieyes_consent_update', function (event) {
+
+        const data = event.detail;
+
+        if (hasRequiredConsent(data)) {
+            loadYouTube();
+        }
+
+    });
+
+})();
+</script>
   
 </div>
 <section class="best-deals">
